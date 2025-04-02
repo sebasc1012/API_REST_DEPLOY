@@ -2,7 +2,8 @@ const express = require("express");
 const movies = require("./movies.json");
 const crypto = require("node:crypto");
 const app = express();
-const PORT = process.env.PORT ?? 4321;
+const PORT = process.env.PORT || 4321;
+const HOST = "0.0.0.0";
 const { validateSquema, validateEditSquema } = require("./squemas/movieSquema");
 app.disable("x-powered-by");
 
@@ -98,6 +99,6 @@ app.options("/movies/:id", (req, res) => {
   res.sendStatus(204);
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, HOST, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
