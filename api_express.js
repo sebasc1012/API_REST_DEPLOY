@@ -86,10 +86,16 @@ app.delete("/movies/:id", (req, res) => {
 
 // CORS middleware app.options help ud to allow the PUT PATCH POST petitions dosent have problems with CORS
 app.options("/movies/:id", (req, res) => {
-  const origin = req.headers("origin");
+  const origin = req.get("origin"); // Correct way to get the origin
   if (origin) {
     res.header("Access-Control-Allow-Origin", origin);
+    res.header(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PATCH, DELETE, OPTIONS"
+    );
+    res.header("Access-Control-Allow-Headers", "Content-Type");
   }
+  res.sendStatus(204);
 });
 
 app.listen(PORT, () => {
