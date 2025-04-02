@@ -1,0 +1,51 @@
+### get all the movies 
+
+GET http://localhost:4321/movies
+
+
+#### GET MOVIE BY ID
+GET http://localhost:4321/movies/tt0499549
+
+#### get movie by gender 
+GET http://localhost:4321/movies?genre=Biography
+
+#### get movie by year
+
+GET http://localhost:4321/movies/year
+
+
+#### create a movie
+POST http://localhost:4321/movies
+Content-Type: application/json
+
+{
+  "Title": "Back to the Future",
+  "Year": "1985",
+  "Rated": "TV-MA",
+  "title": "28 Aug 2015",
+  "Runtime": "49 min",
+  "Genre": "Action, Adventure, Comedy",
+  "Director": "Robert Zemeckis",
+  "Writer": "Robert Zemeckis, Bob Gale",
+  "Actors": "Michael J. Fox, Christopher Lloyd, Lea Thompson, Crispin Glover",
+  "Plot": "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, eccentric scientist Doc Brown.",
+  "Language": "English, Spanish",
+  "Country": "USA",
+  "Awards": "Won 1 Oscar. Another 25 wins & 47 nominations.",
+  "imdbRating": "8.5",
+  "imdbVotes": "1,000,000",
+  "Type": "movie",
+  "totalSeasons": "1"
+}
+
+#### update a movie
+PATCH http://localhost:4321/movies/tt0499549
+Content-Type: application/json
+
+{
+    "Year": "2008",
+    "Rated": "TV-MV"
+}
+
+### delete a movie
+DELETE http://localhost:4321/movies/tt0480249
