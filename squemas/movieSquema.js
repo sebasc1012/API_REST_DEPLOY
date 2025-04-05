@@ -1,4 +1,4 @@
-const z = require("zod");
+import z from "zod";
 
 const movieSquema = z.object({
   Title: z.string(),
@@ -20,13 +20,11 @@ const movieSquema = z.object({
   totalSeasons: z.string(),
 });
 
-function validateSquema(objet) {
+export function validateSquema(objet) {
   return movieSquema.safeParse(objet);
 }
 // partial() allows to validate only some properties of the object
 // this is useful when we want to update an object
-function validateEditSquema(obj) {
+export function validateEditSquema(obj) {
   return movieSquema.partial().safeParse(obj);
 }
-
-module.exports = { validateSquema, validateEditSquema };

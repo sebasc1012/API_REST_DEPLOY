@@ -2,6 +2,7 @@
   "name": "express",
   "version": "1.0.0",
   "main": "api_express.js",
+  "type": "module",
   "scripts": {
     "start": "node api_express.js",
     "test": "echo \"Error: no test specified\" && exit 1"
