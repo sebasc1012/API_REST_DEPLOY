@@ -10,7 +10,6 @@ GET http://localhost:4321/movies/tt0499549
 GET http://localhost:4321/movies?genre=Biography
 
 #### get movie by year
-
 GET http://localhost:4321/movies/year
 
 
@@ -19,7 +18,7 @@ POST http://localhost:4321/movies
 Content-Type: application/json
 
 {
-  "Title": "Back to the Future",
+  "Title": "Tesring",
   "Year": "1985",
   "Rated": "TV-MA",
   "title": "28 Aug 2015",
@@ -39,13 +38,14 @@ Content-Type: application/json
 }
 
 #### update a movie
-PATCH http://localhost:4321/movies/tt0499549
+PATCH http://localhost:4321/movies/165eac1d-428d-4f60-917d-d66bbb91b222
 Content-Type: application/json
 
 {
+  "Title": "Test",
     "Year": "2008",
     "Rated": "TV-MV"
 }
 
 ### delete a movie
-DELETE http://localhost:4321/movies/tt0480249
+DELETE http://localhost:4321/movies/165eac1d-428d-4f60-917d-d66bbb91b222

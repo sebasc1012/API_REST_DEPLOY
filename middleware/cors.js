@@ -1,16 +1,23 @@
 import cors from "cors";
 
-export const middlewareCors = () =>
+const ACCEPTED_ORIGINS = [
+  "http://localhost:8080",
+  "http://localhost:4321",
+  "https://movies.com",
+];
+
+export const middlewareCors = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) =>
   cors({
     origin: (origin, callback) => {
-      if (origin) {
-        callback(null, origin);
-      } else {
-        callback(new Error("CORS not allowed"));
+      if (acceptedOrigins.includes(origin)) {
+        return callback(null, true);
       }
+
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
     },
-    methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type"],
-    credentials: true,
   });
 // This middleware will allow CORS for all origins and methods
